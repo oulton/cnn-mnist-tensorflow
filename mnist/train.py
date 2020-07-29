@@ -8,6 +8,7 @@ tensorflow 2.0.0b0
 '''
 
 AlexNet_Or_LeNet = False    # True代表为AlexNet， False代表LeNet网络
+Epoch = 10
 
 class CNN(object):
     def __init__(self):
@@ -90,7 +91,7 @@ class Train:
                                metrics=['accuracy'])
         #  训练5个epoch
         self.cnn.model.fit(self.data.train_images, self.data.train_labels,
-                           epochs=5, batch_size=128, verbose=1, callbacks=[save_model_cb])
+                           epochs=Epoch, batch_size=128, verbose=1, callbacks=[save_model_cb])
 
         test_loss, test_acc = self.cnn.model.evaluate(
             self.data.test_images, self.data.test_labels)
